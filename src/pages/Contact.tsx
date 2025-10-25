@@ -1,160 +1,197 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
-import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
-import { useToast } from "../hooks/use-toast";
+import { Card } from "../components/ui/card";
+import { Label } from "../components/ui/label";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const Contact = () => {
-  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    whatsapp: "",
+    subject: "",
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
-    setFormData({ name: "", email: "", whatsapp: "", message: "" });
   };
 
-  const handleWhatsAppClick = () => {
-    window.open("https://wa.me/1234567890", "_blank");
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Contact form submitted:", formData);
+    // Form submission logic will be implemented later
+    alert("Thank you for your message! We'll get back to you soon.");
+    setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
-      
-      <main className="pt-24 pb-16 container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">Get in Touch With Us</h1>
-          <p className="text-center text-muted-foreground mb-12 text-lg">
-            Have questions? We'd love to hear from you.
+
+      {/* Header */}
+      <section className="bg-gradient-hero py-16">
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-4 animate-fade-in">
+            Contact Us
+          </h1>
+          <p className="text-lg text-muted-foreground animate-slide-up">
+            We're here to help and answer any questions you might have
           </p>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* Contact Form */}
-            <Card className="bg-card border-border">
-              <CardHeader>
-                <CardTitle>Send us a Message</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <Input
-                      placeholder="Your Name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Input
-                      type="email"
-                      placeholder="Your Email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Input
-                      placeholder="WhatsApp Number"
-                      value={formData.whatsapp}
-                      onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Textarea
-                      placeholder="Your Message"
-                      rows={5}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
+      {/* Contact Content */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Form */}
+          <div>
+            <h2 className="text-2xl font-bold text-secondary mb-6">Send us a Message</h2>
+            <Card className="p-6 shadow-soft">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="your@email.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="subject">Subject</Label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    placeholder="What is this about?"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="Your message..."
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white">
+                  Send Message
+                </Button>
+              </form>
             </Card>
-
-            {/* Contact Info */}
-            <div className="space-y-6">
-              <Card className="bg-card border-border">
-                <CardContent className="pt-6">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="bg-primary/10 p-3 rounded-lg">
-                      <Mail className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Email</h3>
-                      <p className="text-muted-foreground">info..motoshop.com</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="bg-primary/10 p-3 rounded-lg">
-                      <Phone className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Phone</h3>
-                      <p className="text-muted-foreground">+1 (234) 567-890</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary/10 p-3 rounded-lg">
-                      <MapPin className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Address</h3>
-                      <p className="text-muted-foreground">
-                        123 Motorcycle Ave, Speed City, MC 12345
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Button
-                onClick={handleWhatsAppClick}
-                variant="outline"
-                className="w-full gap-2 py-6"
-                size="lg"
-              >
-                <MessageCircle className="h-5 w-5" />
-                Chat on WhatsApp
-              </Button>
-            </div>
           </div>
 
-          {/* Map */}
-          <Card className="bg-card border-border overflow-hidden">
-            <div className="aspect-video bg-muted">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a316f0b3a23%3A0x7f72f6b0d2e3f6a8!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                title="Location Map"
-              />
+          {/* Contact Information */}
+          <div>
+            <h2 className="text-2xl font-bold text-secondary mb-6">Contact Information</h2>
+            <div className="space-y-6">
+              <Card className="p-6 hover:shadow-hover transition-smooth">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-lg">
+                    <MapPin className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-secondary mb-1">Address</h3>
+                    <p className="text-muted-foreground">
+                      123 Luxury Avenue<br />
+                      Hotel District, HD 12345<br />
+                      United States
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 hover:shadow-hover transition-smooth">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-lg">
+                    <Phone className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-secondary mb-1">Phone</h3>
+                    <p className="text-muted-foreground">
+                      Main: +1 (234) 567-8900<br />
+                      Reservations: +1 (234) 567-8901
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 hover:shadow-hover transition-smooth">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-lg">
+                    <Mail className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-secondary mb-1">Email</h3>
+                    <p className="text-muted-foreground">
+                      General: info@luxestay.com<br />
+                      Support: support@luxestay.com
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 hover:shadow-hover transition-smooth">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-lg">
+                    <Clock className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-secondary mb-1">Business Hours</h3>
+                    <p className="text-muted-foreground">
+                      24/7 Reception & Support<br />
+                      Check-in: 3:00 PM<br />
+                      Check-out: 11:00 AM
+                    </p>
+                  </div>
+                </div>
+              </Card>
             </div>
-          </Card>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Map Section */}
+      <section className="container mx-auto px-4 pb-16">
+        <Card className="overflow-hidden shadow-soft">
+          <div className="aspect-[21/9] bg-muted flex items-center justify-center">
+            <p className="text-muted-foreground">Map placeholder - Integration available on request</p>
+          </div>
+        </Card>
+      </section>
+
+      <Footer />
     </div>
   );
 };
