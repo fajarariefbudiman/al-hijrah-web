@@ -1,16 +1,17 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "../src/components/ui/toaster";
+import { Toaster as Sonner } from "../src/components/ui/sonner";
+import { TooltipProvider } from "../src/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index from "./pages/Index";
-import Rooms from "./pages/Rooms";
-import RoomDetail from "./pages/RoomDetail";
+import Search from "./pages/Search";
+import Bus from "./pages/Bus";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Rute from "./pages/Rute";
 import Booking from "./pages/Booking";
 import Payment from "./pages/Payment";
 import NotFound from "./pages/NotFound";
@@ -25,8 +26,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/rooms" element={<Rooms />} />
-          <Route path="/room/:id" element={<RoomDetail />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/bus" element={<Bus />} />
+          <Route path="/routes" element={<Rute />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../components/ui/card";
 import { Label } from "../components/ui/label";
-import { Hotel } from "lucide-react";
+import img from "../assets/more.jpg";
+import logo from "../assets/al-hijrah-logo-rm.png";
+import { Facebook, Mail } from "lucide-react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,30 +13,57 @@ const Login = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Login logic will be implemented later
     console.log("Login:", { email, password });
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
+    <div className="h-screen flex flex-col md:flex-row bg-black text-gray-200 overflow-hidden">
+      {/* Left Side Image */}
+      <div className="hidden md:flex w-1/2 relative overflow-hidden">
+        {/* Background Image */}
+        <img
+          src={img}
+          alt="Al-Hijrah Bus"
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+        />
 
-      <div className="flex-1 flex items-center justify-center bg-gradient-hero py-12 px-4">
-        <Card className="w-full max-w-md shadow-hover animate-scale-in">
-          <CardHeader className="text-center">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-primary/10 rounded-full">
-                <Hotel className="h-8 w-8 text-primary" />
-              </div>
-            </div>
-            <CardTitle className="text-2xl font-bold text-secondary">Welcome Back</CardTitle>
-            <CardDescription>Sign in to your Luxe Stay account</CardDescription>
-          </CardHeader>
+        {/* Overlay Hitam Transparan */}
+        <div className="absolute inset-0 bg-black/60 z-[1]" />
 
-          <form onSubmit={handleSubmit}>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+        {/* Logo kiri atas */}
+        <div className="absolute top-8 left-8 flex items-center gap-3 z-[2]">
+          <div className="bg-white/10 backdrop-blur-md border border-amber-400/50 rounded-xl p-3 shadow-[0_0_20px_rgba(251,191,36,0.3)]">
+            <img
+              src={logo}
+              alt="Al-Hijrah Logo"
+              className="h-14 w-auto drop-shadow-[0_0_12px_rgba(249, 216, 134, 0.43)]"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Right Side Form */}
+      <div className="w-full md:w-1/2 flex flex-col justify-center px-6 sm:px-10 lg:px-20 py-12 lg:py-0 bg-[#0A0A0A]">
+        <div className="max-w-lg w-full mx-auto">
+          {/* Desktop text */}
+          <div className="hidden md:block">
+            <h1 className="text-5xl lg:text-6xl font-extrabold text-amber-400 mb-5 leading-tight">Masuk</h1>
+            <p className="text-gray-400 text-lg lg:text-xl mb-12 leading-relaxed">
+              Mau ke mana perjalanan Anda hari ini? <br />
+              <span className="text-amber-400 font-medium">Al-Hijrah Bus</span> siap menemani setiap langkah perjalanan Anda.
+            </p>
+
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-8"
+            >
+              <div className="space-y-3">
+                <Label
+                  htmlFor="email"
+                  className="text-gray-300 text-base lg:text-lg"
+                >
+                  Email
+                </Label>
                 <Input
                   id="email"
                   type="email"
@@ -44,19 +71,17 @@ const Login = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  className="bg-transparent border-amber-400/40 text-white placeholder-gray-500 focus:border-amber-400 text-lg py-4 rounded-xl"
                 />
               </div>
 
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <Label htmlFor="password">Password</Label>
-                  <Link
-                    to="/forgot-password"
-                    className="text-sm text-primary hover:underline"
-                  >
-                    Forgot password?
-                  </Link>
-                </div>
+              <div className="space-y-3">
+                <Label
+                  htmlFor="password"
+                  className="text-gray-300 text-base lg:text-lg"
+                >
+                  Password
+                </Label>
                 <Input
                   id="password"
                   type="password"
@@ -64,24 +89,158 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  className="bg-transparent border-amber-400/40 text-white placeholder-gray-500 focus:border-amber-400 text-lg py-4 rounded-xl"
                 />
               </div>
-            </CardContent>
 
-            <CardFooter className="flex flex-col gap-4">
-              <Button type="submit" className="w-full bg-sky-blue hover:bg-sky-blue/90 text-white">
-                Sign In
+              <Button
+                type="submit"
+                className="w-full bg-amber-500 hover:bg-amber-600 text-black font-bold py-4 rounded-xl text-lg shadow-[0_0_20px_rgba(251,191,36,0.5)] transition-all"
+              >
+                Masuk
               </Button>
 
-              <p className="text-sm text-center text-muted-foreground">
-                Don't have an account?{" "}
-                <Link to="/register" className="text-sky-blue font-medium hover:underline">
-                  Register now
+              {/* Login social */}
+              <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                <Button
+                  type="button"
+                  className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 text-gray-200"
+                >
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+                    alt="Google"
+                    className="h-5 w-5 mr-2"
+                  />
+                  Google
+                </Button>
+                <Button
+                  type="button"
+                  className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 text-gray-200"
+                >
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg"
+                    alt="Facebook"
+                    className="h-5 w-5 mr-2"
+                  />
+                  Facebook
+                </Button>
+              </div>
+            </form>
+
+            <p className="text-base text-center text-gray-400 mt-10">
+              Belum punya akun?{" "}
+              <Link
+                to="/register"
+                className="text-amber-400 font-semibold hover:underline"
+              >
+                Daftar sekarang
+              </Link>
+            </p>
+
+            <p className="text-sm text-center text-gray-500 mt-12 tracking-wide">© 2025 Al-Hijrah Transport. All Rights Reserved.</p>
+          </div>
+
+          {/* Mobile version with card (styled like register) */}
+          <div className="block md:hidden min-h-screen flex items-center justify-center bg-[#0A0A0A] px-6 py-10">
+            <div className="w-full max-w-md bg-[#111111] rounded-3xl shadow-lg shadow-amber-500/10 border border-amber-400/20 p-8">
+              <h1 className="text-4xl font-extrabold text-amber-400 text-center mb-3 tracking-tight">Masuk</h1>
+              <p className="text-gray-400 text-center mb-8 text-base leading-relaxed">
+                Selamat datang kembali di <span className="text-amber-400 font-semibold">Al-Hijrah Bus</span>
+              </p>
+
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="email"
+                    className="text-gray-300 text-sm"
+                  >
+                    Email
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="you@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="bg-transparent border-amber-400/40 text-white placeholder-gray-500 focus:border-amber-400 text-base py-3 rounded-xl"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="password"
+                    className="text-gray-300 text-sm"
+                  >
+                    Password
+                  </Label>
+                  <Input
+                    id="password"
+                    type="password"
+                    placeholder="••••••••"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    className="bg-transparent border-amber-400/40 text-white placeholder-gray-500 focus:border-amber-400 text-base py-3 rounded-xl"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-amber-500 hover:bg-amber-600 text-black font-bold py-3 rounded-xl text-base shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all"
+                >
+                  Masuk
+                </Button>
+              </form>
+
+              {/* Divider */}
+              <div className="flex items-center my-6">
+                <div className="flex-grow border-t border-gray-700" />
+                <span className="mx-3 text-xs text-gray-400">atau masuk dengan</span>
+                <div className="flex-grow border-t border-gray-700" />
+              </div>
+
+              {/* Social Login Buttons */}
+              <div className="flex gap-3">
+                <Button
+                  type="button"
+                  className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 text-gray-200"
+                >
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+                    alt="Google"
+                    className="h-5 w-5 mr-2"
+                  />
+                  Google
+                </Button>
+                <Button
+                  type="button"
+                  className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 text-gray-200"
+                >
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg"
+                    alt="Facebook"
+                    className="h-5 w-5 mr-2"
+                  />
+                  Facebook
+                </Button>
+              </div>
+
+              <p className="text-sm text-center text-gray-400 mt-8">
+                Belum punya akun?{" "}
+                <Link
+                  to="/register"
+                  className="text-amber-400 font-semibold hover:underline"
+                >
+                  Daftar sekarang
                 </Link>
               </p>
-            </CardFooter>
-          </form>
-        </Card>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

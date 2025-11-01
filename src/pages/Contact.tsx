@@ -7,6 +7,8 @@ import { Textarea } from "../components/ui/textarea";
 import { Card } from "../components/ui/card";
 import { Label } from "../components/ui/label";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import bgBus from "../assets/more.jpg"; 
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -25,170 +27,155 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Contact form submitted:", formData);
-    // Form submission logic will be implemented later
-    alert("Thank you for your message! We'll get back to you soon.");
+    alert("Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.");
     setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#0A0A0A] text-gray-200">
       <Navbar />
 
       {/* Header */}
-      <section className="bg-gradient-hero py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-4 animate-fade-in">
-            Contact Us
-          </h1>
-          <p className="text-lg text-muted-foreground animate-slide-up">
-            We're here to help and answer any questions you might have
-          </p>
+      {/* HERO */}
+      <section
+        className="relative pt-28 pb-24 text-center bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${bgBus})`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <div className="relative z-10 max-w-3xl mx-auto px-6 sm:px-8">
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 bg-clip-text text-transparent">Hubungi Kami</h1>
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed">Tim Al-Hijrah siap membantu Anda untuk pemesanan, kerja sama, atau informasi seputar layanan transportasi kami.</p>
         </div>
       </section>
 
-      {/* Contact Content */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
+      {/* Konten */}
+      <section className="container mx-auto px-6 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Formulir */}
           <div>
-            <h2 className="text-2xl font-bold text-secondary mb-6">Send us a Message</h2>
-            <Card className="p-6 shadow-soft">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
+            <h2 className="text-2xl font-bold text-amber-400 mb-6">Kirim Pesan</h2>
+            <Card className="p-6 bg-white/5 border border-white/10 backdrop-blur-md">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-5"
+              >
+                <div>
+                  <Label htmlFor="name">Nama</Label>
                   <Input
                     id="name"
                     name="name"
-                    placeholder="Your name"
+                    placeholder="Nama lengkap Anda"
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    className="bg-transparent border-amber-400/30 focus:border-amber-400"
                   />
                 </div>
 
-                <div className="space-y-2">
+                <div>
                   <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="your@email.com"
+                    placeholder="emailanda@gmail.com"
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    className="bg-transparent border-amber-400/30 focus:border-amber-400"
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
+                <div>
+                  <Label htmlFor="subject">Subjek</Label>
                   <Input
                     id="subject"
                     name="subject"
-                    placeholder="What is this about?"
+                    placeholder="Subjek pesan Anda"
                     value={formData.subject}
                     onChange={handleChange}
                     required
+                    className="bg-transparent border-amber-400/30 focus:border-amber-400"
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                <div>
+                  <Label htmlFor="message">Pesan</Label>
                   <Textarea
                     id="message"
                     name="message"
-                    placeholder="Your message..."
+                    placeholder="Tulis pesan Anda di sini..."
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
                     required
+                    className="bg-transparent border-amber-400/30 focus:border-amber-400"
                   />
                 </div>
 
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white">
-                  Send Message
+                <Button
+                  type="submit"
+                  className="w-full bg-amber-500 hover:bg-amber-600 text-black font-semibold transition-all"
+                >
+                  Kirim Pesan
                 </Button>
               </form>
             </Card>
           </div>
 
-          {/* Contact Information */}
-          <div>
-            <h2 className="text-2xl font-bold text-secondary mb-6">Contact Information</h2>
-            <div className="space-y-6">
-              <Card className="p-6 hover:shadow-hover transition-smooth">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
-                    <MapPin className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-secondary mb-1">Address</h3>
-                    <p className="text-muted-foreground">
-                      123 Luxury Avenue<br />
-                      Hotel District, HD 12345<br />
-                      United States
-                    </p>
-                  </div>
-                </div>
-              </Card>
+          {/* Informasi Kontak */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold text-amber-400 mb-4">Informasi Kontak</h2>
 
-              <Card className="p-6 hover:shadow-hover transition-smooth">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
-                    <Phone className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-secondary mb-1">Phone</h3>
-                    <p className="text-muted-foreground">
-                      Main: +1 (234) 567-8900<br />
-                      Reservations: +1 (234) 567-8901
-                    </p>
-                  </div>
-                </div>
-              </Card>
+            <Card className="p-6 bg-white/5 border border-white/10 flex items-start gap-4">
+              <MapPin className="h-6 w-6 text-amber-400 mt-1" />
+              <div>
+                <h3 className="font-semibold text-white mb-1">Alamat Kantor</h3>
+                <p className="text-gray-400">
+                  Jl. Raya Pondok Cabe No. 89 <br />
+                  Tangerang Selatan, Banten 15418 <br />
+                  Indonesia
+                </p>
+              </div>
+            </Card>
 
-              <Card className="p-6 hover:shadow-hover transition-smooth">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
-                    <Mail className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-secondary mb-1">Email</h3>
-                    <p className="text-muted-foreground">
-                      General: info@luxestay.com<br />
-                      Support: support@luxestay.com
-                    </p>
-                  </div>
-                </div>
-              </Card>
+            <Card className="p-6 bg-white/5 border border-white/10 flex items-start gap-4">
+              <Phone className="h-6 w-6 text-amber-400 mt-1" />
+              <div>
+                <h3 className="font-semibold text-white mb-1">Telepon</h3>
+                <p className="text-gray-400">
+                  Admin: +62 812-1234-5678 <br />
+                  Reservasi: +62 811-9876-5432
+                </p>
+              </div>
+            </Card>
 
-              <Card className="p-6 hover:shadow-hover transition-smooth">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
-                    <Clock className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-secondary mb-1">Business Hours</h3>
-                    <p className="text-muted-foreground">
-                      24/7 Reception & Support<br />
-                      Check-in: 3:00 PM<br />
-                      Check-out: 11:00 AM
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </div>
+            <Card className="p-6 bg-white/5 border border-white/10 flex items-start gap-4">
+              <Mail className="h-6 w-6 text-amber-400 mt-1" />
+              <div>
+                <h3 className="font-semibold text-white mb-1">Email</h3>
+                <p className="text-gray-400">
+                  info@alhijrahbus.co.id <br />
+                  support@alhijrahbus.co.id
+                </p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-white/5 border border-white/10 flex items-start gap-4">
+              <Clock className="h-6 w-6 text-amber-400 mt-1" />
+              <div>
+                <h3 className="font-semibold text-white mb-1">Jam Operasional</h3>
+                <p className="text-gray-400">
+                  Senin - Jumat: 08.00 - 21.00 <br />
+                  Sabtu: 09.00 - 18.00 <br />
+                  Minggu & Hari Libur: Tutup
+                </p>
+              </div>
+            </Card>
           </div>
         </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="container mx-auto px-4 pb-16">
-        <Card className="overflow-hidden shadow-soft">
-          <div className="aspect-[21/9] bg-muted flex items-center justify-center">
-            <p className="text-muted-foreground">Map placeholder - Integration available on request</p>
-          </div>
-        </Card>
       </section>
 
       <Footer />
