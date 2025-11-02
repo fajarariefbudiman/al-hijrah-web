@@ -91,18 +91,18 @@ const Index = () => {
   const customSelectStyles: StylesConfig<{ value: string; label: string }, false> = {
     control: (provided, state) => ({
       ...provided,
-      backgroundColor: "#2A2A2A",
-      borderColor: state.isFocused ? "#FBBF24" : "#2A2A2A",
+      backgroundColor: "#F9FAFB",
+      borderColor: state.isFocused ? "#FBBF24" : "#E5E7EB",
       boxShadow: "none",
       "&:hover": { borderColor: "#FBBF24" },
-      color: "#E5E7EB",
+      color: "#111827",
     }),
-    singleValue: (provided) => ({ ...provided, color: "#E5E7EB" }),
-    menu: (provided) => ({ ...provided, backgroundColor: "#1A1A1A" }),
+    singleValue: (provided) => ({ ...provided, color: "#111827" }),
+    menu: (provided) => ({ ...provided, backgroundColor: "#FFFFFF" }),
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: state.isFocused ? "#3B3B3B" : "#1A1A1A",
-      color: "#E5E7EB",
+      backgroundColor: state.isFocused ? "#FEF3C7" : "#FFFFFF",
+      color: "#111827",
       cursor: "pointer",
     }),
   };
@@ -144,7 +144,7 @@ const Index = () => {
   }, [heroSlides.length]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0F0F0F] text-white font-sans antialiased">
+    <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans antialiased">
       <Navbar />
 
       {/* Hero Section - Fade Carousel */}
@@ -163,50 +163,27 @@ const Index = () => {
         ))}
 
         {/* Overlay gradasi */}
-        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-br from-black/95 via-black/80 to-red-900/40 z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-br from-white/95 via-white/85 to-red-100/60 z-[1]" />
 
         {/* Teks utama */}
         <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-6xl flex flex-col justify-center h-full text-center md:text-left">
           <div className="max-w-3xl mx-auto md:mx-0">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-12 md:mb-60">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-12 md:mb-60 text-gray-900">
               Booking Tiket Bus
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 mt-2">Cepat & Nyaman</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-red-600 mt-2">Cepat & Nyaman</span>
             </h1>
           </div>
         </div>
       </section>
 
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2 block">Asal</label>
-                <Select
-                  value={departureCity}
-                  onChange={setDepartureCity}
-                  options={cities}
-                  styles={customSelectStyles}
-                  placeholder="Pilih Kota Asal"
-                />
-              </div>
-
-              <div>
-                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2 block">Tujuan</label>
-                <Select
-                  value={arrivalCity}
-                  onChange={setArrivalCity}
-                  options={cities}
-                  styles={customSelectStyles}
-                  placeholder="Pilih Kota Tujuan"
-                />
-              </div>
-            </div> */}
       {/* Search Bar */}
       <section className="container mx-auto px-4 sm:px-6 -mt-32 sm:-mt-60 relative z-20 max-w-7xl">
-        <Card className="p-4 sm:p-8 bg-[#1A1A1A] shadow-lg rounded-2xl border border-gray-800">
-          <div className="space-y-6 text-white">
+        <Card className="p-4 sm:p-8 bg-white shadow-xl rounded-2xl border border-gray-200">
+          <div className="space-y-6 text-gray-900">
             {/* Row 1 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2 block">Asal</label>
+                <label className="text-xs font-semibold text-gray-600 uppercase tracking-wide mb-2 block">Asal</label>
                 <Select
                   value={departureCity}
                   onChange={(val) => {
@@ -217,12 +194,12 @@ const Index = () => {
                   styles={customSelectStyles}
                   placeholder="Pilih Kota Asal"
                 />
-                {errors.departure && <p className="text-red-500 text-xs mt-1">{errors.departure}</p>}
+                {errors.departure && <p className="text-red-600 text-xs mt-1">{errors.departure}</p>}
               </div>
 
               {/* Tujuan */}
               <div>
-                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2 block">Tujuan</label>
+                <label className="text-xs font-semibold text-gray-600 uppercase tracking-wide mb-2 block">Tujuan</label>
                 <Select
                   value={arrivalCity}
                   onChange={(val) => {
@@ -233,7 +210,7 @@ const Index = () => {
                   styles={customSelectStyles}
                   placeholder="Pilih Kota Tujuan"
                 />
-                {errors.arrival && <p className="text-red-500 text-xs mt-1">{errors.arrival}</p>}
+                {errors.arrival && <p className="text-red-600 text-xs mt-1">{errors.arrival}</p>}
               </div>
             </div>
 
@@ -241,11 +218,11 @@ const Index = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 items-end">
               {/* Tanggal */}
               <div className="flex flex-col">
-                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2 block">Tanggal Keberangkatan</label>
+                <label className="text-xs font-semibold text-gray-600 uppercase tracking-wide mb-2 block">Tanggal Keberangkatan</label>
                 <DatePicker
                   selected={departureDate}
                   onChange={(date) => setDepartureDate(date!)}
-                  className="w-full h-[48px] sm:h-[56px] px-4 rounded-xl bg-[#2A2A2A] border border-gray-700 text-gray-200 focus:border-yellow-400 focus:outline-none text-sm"
+                  className="w-full h-[48px] sm:h-[56px] px-4 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:border-yellow-400 focus:outline-none text-sm"
                   minDate={new Date()}
                   dateFormat="dd/MM/yyyy"
                 />
@@ -253,7 +230,7 @@ const Index = () => {
 
               {/* Jumlah Kursi */}
               <div className="flex flex-col">
-                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2 block">Jumlah Kursi</label>
+                <label className="text-xs font-semibold text-gray-600 uppercase tracking-wide mb-2 block">Jumlah Kursi</label>
                 <Select
                   value={seatCount}
                   onChange={setSeatCount}
@@ -264,7 +241,7 @@ const Index = () => {
 
               {/* Kelas */}
               <div className="flex flex-col">
-                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2 block">Kelas</label>
+                <label className="text-xs font-semibold text-gray-600 uppercase tracking-wide mb-2 block">Kelas</label>
                 <Select
                   value={busClass}
                   onChange={setBusClass}
@@ -278,7 +255,7 @@ const Index = () => {
                 <label className="text-xs font-semibold text-transparent mb-2 block select-none">Cari</label>
                 <Button
                   onClick={handleSearch}
-                  className="w-full h-[48px] sm:h-[56px] rounded-xl bg-gradient-to-r from-red-600 to-yellow-500 hover:from-red-700 hover:to-yellow-400 text-white font-semibold shadow-lg transition-all text-sm sm:text-base"
+                  className="w-full h-[48px] sm:h-[56px] rounded-xl bg-gradient-to-r from-red-600 to-yellow-500 hover:from-red-700 hover:to-yellow-600 text-white font-semibold shadow-lg transition-all text-sm sm:text-base"
                 >
                   <Search className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                   Cari Tiket
@@ -289,56 +266,16 @@ const Index = () => {
         </Card>
       </section>
 
-      {/* Experience Carousel - Fade Effect */}
-      {/* <section className="bg-[#d1d1d1] container mx-auto px-6 py-24 max-w-full">
-        <div className="relative max-w-6xl mx-auto">
-          <div className="relative h-[200px] rounded-2xl overflow-hidden">
-            {experienceSlides.map((item, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 transition-opacity duration-1000 ${index === currentExperienceSlide ? "opacity-100" : "opacity-0"}`}
-              >
-                <div className="bg-[#1A1A1A] rounded-2xl overflow-hidden shadow-xl border border-gray-800 h-full">
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent" />
-                  </div>
-                  <div className="p-8 text-center">
-                    <h3 className="text-2xl font-bold text-yellow-400 mb-3">{item.title}</h3>
-                    <p className="text-gray-300 leading-relaxed text-lg">{item.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex justify-center mt-8 gap-2">
-            {experienceSlides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentExperienceSlide(i)}
-                className={`h-2 rounded-full transition-all ${i === currentExperienceSlide ? "bg-yellow-400 w-8" : "bg-gray-600 w-2 hover:bg-gray-500"}`}
-              />
-            ))}
-          </div>
-        </div>
-
-      </section> */}
-
       {/* Berita Terbaru */}
-      <section className="bg-[#1d1d1d] py-16 sm:py-24">
+      <section className="bg-gray-50 py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1b1b1b] mb-8 text-center md:text-left">Berita Terbaru</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">Berita Terbaru</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {featuredNews.map((news) => (
               <div
                 key={news.id}
-                className="bg-[#303030] rounded-2xl overflow-hidden shadow-md flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all"
+                className="bg-white rounded-2xl overflow-hidden shadow-md flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all border border-gray-200"
               >
                 {/* Gambar responsif */}
                 <div className="h-52 sm:h-56 md:h-full overflow-hidden">
@@ -352,13 +289,13 @@ const Index = () => {
                 {/* Konten */}
                 <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-2 sm:mb-3">{news.title}</h3>
-                    <p className="text-gray-300 text-sm sm:text-base mb-4 line-clamp-3">{news.desc}</p>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-2 sm:mb-3">{news.title}</h3>
+                    <p className="text-gray-600 text-sm sm:text-base mb-4 line-clamp-3">{news.desc}</p>
                   </div>
 
                   <Link
                     to={`/news/${news.id}`}
-                    className="text-red-500 font-semibold hover:underline flex items-center gap-1 text-sm sm:text-base"
+                    className="text-red-600 font-semibold hover:underline flex items-center gap-1 text-sm sm:text-base"
                   >
                     Lihat Selengkapnya <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -370,11 +307,11 @@ const Index = () => {
       </section>
 
       {/* Section Agen */}
-      <section className=" container mx-auto px-4 sm:px-6 py-16 sm:py-24 max-w-7xl">
+      <section className="container mx-auto px-4 sm:px-6 py-16 sm:py-24 max-w-7xl">
         <div className="text-center mb-10 sm:mb-12">
-          <span className="text-yellow-400 font-semibold text-xs sm:text-sm uppercase tracking-wider">Agen Resmi</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-2">Temukan Agen Kami</h2>
-          <p className="text-gray-400 mt-2 text-sm sm:text-lg max-w-2xl mx-auto">Daftar lokasi agen resmi BusTicket di seluruh Indonesia</p>
+          <span className="text-yellow-600 font-semibold text-xs sm:text-sm uppercase tracking-wider">Agen Resmi</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-2">Temukan Agen Kami</h2>
+          <p className="text-gray-600 mt-2 text-sm sm:text-lg max-w-2xl mx-auto">Daftar lokasi agen resmi BusTicket di seluruh Indonesia</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
@@ -410,7 +347,7 @@ const Index = () => {
           ].map((agent) => (
             <Card
               key={agent.id}
-              className="bg-[#1A1A1A] border border-gray-800 rounded-2xl shadow-lg hover:border-yellow-400 transition-all overflow-hidden"
+              className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl hover:border-yellow-400 transition-all overflow-hidden"
             >
               {/* Gambar Agen */}
               <div className="h-40 sm:h-48 md:h-56 overflow-hidden">
@@ -423,12 +360,12 @@ const Index = () => {
 
               {/* Detail Agen */}
               <div className="p-5 sm:p-6 text-center sm:text-left">
-                <h3 className="text-lg sm:text-xl font-semibold text-white mb-1">{agent.name}</h3>
-                <p className="text-gray-300 text-sm">{agent.city}</p>
-                <p className="text-gray-400 text-xs mt-1">{agent.address}</p>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1">{agent.name}</h3>
+                <p className="text-gray-700 text-sm">{agent.city}</p>
+                <p className="text-gray-500 text-xs mt-1">{agent.address}</p>
                 <Link
                   to={`/agents/${agent.id}`}
-                  className="inline-block mt-4 text-red-500 font-semibold hover:underline text-sm sm:text-base"
+                  className="inline-block mt-4 text-red-600 font-semibold hover:underline text-sm sm:text-base"
                 >
                   Lihat Detail
                 </Link>
@@ -439,18 +376,18 @@ const Index = () => {
       </section>
 
       {/* Testimonials - Enhanced */}
-      <section className="bg-[#d1d1d1] px-6 py-24">
+      <section className="bg-gray-50 px-6 py-24">
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
-            <span className="text-[#1b1b1b] font-semibold text-sm uppercase tracking-wider">Testimoni</span>
+            <span className="text-gray-900 font-semibold text-sm uppercase tracking-wider">Testimoni</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1b1b1b] mb-4">
-            Kata <span className="text-yellow-400">Penumpang</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Kata <span className="text-yellow-600">Penumpang</span>
           </h2>
-          <p className="text-[#1d1d1d] text-lg">Cerita nyata dari pelanggan BusTicket</p>
+          <p className="text-gray-600 text-lg">Cerita nyata dari pelanggan BusTicket</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {[
             {
               name: "Dewi Lestari",
@@ -470,21 +407,21 @@ const Index = () => {
           ].map((review, index) => (
             <Card
               key={index}
-              className="p-8 bg-[#1A1A1A] border-2 border-gray-800 hover:border-yellow-400 transition-all rounded-2xl group"
+              className="p-8 bg-white border-2 border-gray-200 hover:border-yellow-400 transition-all rounded-2xl group shadow-md hover:shadow-lg"
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`h-5 w-5 ${i < review.rating ? "fill-yellow-400 text-yellow-400" : "fill-gray-700 text-gray-700"}`}
+                    className={`h-5 w-5 ${i < review.rating ? "fill-yellow-400 text-yellow-400" : "fill-gray-300 text-gray-300"}`}
                   />
                 ))}
               </div>
-              <p className="text-gray-300 mb-6 leading-relaxed text-lg">"{review.comment}"</p>
-              <div className="flex items-center gap-3 pt-4 border-t border-gray-800">
+              <p className="text-gray-700 mb-6 leading-relaxed text-lg">"{review.comment}"</p>
+              <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
                 <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-red-500 rounded-full flex items-center justify-center text-white font-bold">{review.name.charAt(0)}</div>
                 <div>
-                  <p className="font-semibold text-white">{review.name}</p>
+                  <p className="font-semibold text-gray-900">{review.name}</p>
                   <p className="text-sm text-gray-500">Penumpang Setia</p>
                 </div>
               </div>

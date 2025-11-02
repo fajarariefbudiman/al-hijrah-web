@@ -19,11 +19,14 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#2b2b2b]/95 backdrop-blur-lg border-b border-amber-600 shadow-md transition-all duration-300">
+    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-amber-200 shadow-md transition-all duration-300">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link
+            to="/"
+            className="flex items-center gap-2 group"
+          >
             <img
               src={logo}
               alt="Al Hijrah Logo"
@@ -37,11 +40,7 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-semibold uppercase tracking-wide transition-colors ${
-                  isActive(link.path)
-                    ? "text-amber-400 border-b-2 border-amber-400 pb-1"
-                    : "text-gray-200 hover:text-amber-400"
-                }`}
+                className={`text-sm font-semibold uppercase tracking-wide transition-colors ${isActive(link.path) ? "text-amber-600 border-b-2 border-amber-600 pb-1" : "text-gray-700 hover:text-amber-600"}`}
               >
                 {link.label}
               </Link>
@@ -53,47 +52,45 @@ const Navbar = () => {
             <Link to="/login">
               <Button
                 variant="ghost"
-                className="text-gray-200 hover:text-amber-400 hover:bg-amber-800/20"
+                className="text-gray-700 hover:text-amber-600 hover:bg-amber-50"
               >
                 Masuk
               </Button>
             </Link>
             <Link to="/register">
-              <Button className="bg-amber-500 hover:bg-amber-600 text-black font-semibold shadow-md border border-amber-700">
-                Daftar
-              </Button>
+              <Button className="bg-amber-500 hover:bg-amber-600 text-white font-semibold shadow-md border border-amber-300">Daftar</Button>
             </Link>
           </div>
 
           {/* Hamburger */}
           <button
             onClick={() => setIsMenuOpen(true)}
-            className="md:hidden p-2 text-gray-200 hover:text-amber-400 transition-colors"
+            className="md:hidden p-2 text-gray-700 hover:text-amber-600 transition-colors"
           >
             <Menu className="h-6 w-6" />
           </button>
         </div>
       </div>
 
-      {/* Overlay (blur + dark) */}
+      {/* Overlay (blur + light tint) */}
       {isMenuOpen && (
         <div
           onClick={() => setIsMenuOpen(false)}
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300"
+          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 transition-opacity duration-300"
         ></div>
       )}
 
       {/* Side Drawer Menu */}
-      <div
-        className={`fixed top-0 left-0 h-screen w-full bg-[#2b2b2b] shadow-2xl z-50 transform transition-transform duration-500 ease-in-out ${
-          isMenuOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        <div className="flex justify-between items-center px-5 py-4 bg-[#191919]">
-          <img src={logo} alt="Al Hijrah Logo" className="h-10 w-auto" />
+      <div className={`fixed top-0 left-0 h-screen w-full bg-white shadow-2xl z-50 transform transition-transform duration-500 ease-in-out ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}>
+        <div className="flex justify-between items-center px-5 py-4 border-b border-gray-200">
+          <img
+            src={logo}
+            alt="Al Hijrah Logo"
+            className="h-10 w-auto"
+          />
           <button
             onClick={() => setIsMenuOpen(false)}
-            className="text-gray-200 hover:text-amber-400 transition"
+            className="text-gray-700 hover:text-amber-600 transition"
           >
             <X className="h-6 w-6" />
           </button>
@@ -105,29 +102,29 @@ const Navbar = () => {
               key={link.path}
               to={link.path}
               onClick={() => setIsMenuOpen(false)}
-              className={`text-base font-medium uppercase tracking-wide transition-colors ${
-                isActive(link.path)
-                  ? "text-amber-400 border-l-4 border-amber-400 pl-3"
-                  : "text-gray-300 hover:text-amber-400 pl-3"
-              }`}
+              className={`text-base font-medium uppercase tracking-wide transition-colors ${isActive(link.path) ? "text-amber-600 border-l-4 border-amber-600 pl-3" : "text-gray-700 hover:text-amber-600 pl-3"}`}
             >
               {link.label}
             </Link>
           ))}
 
-          <div className="border-t border-amber-700 mt-4 pt-4 flex flex-col gap-3">
-            <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+          <div className="border-t border-gray-200 mt-4 pt-4 flex flex-col gap-3">
+            <Link
+              to="/login"
+              onClick={() => setIsMenuOpen(false)}
+            >
               <Button
                 variant="ghost"
-                className="w-full text-gray-200 hover:text-amber-400 hover:bg-amber-800/20"
+                className="w-full text-gray-700 hover:text-amber-600 hover:bg-amber-50"
               >
                 Masuk
               </Button>
             </Link>
-            <Link to="/register" onClick={() => setIsMenuOpen(false)}>
-              <Button className="w-full bg-amber-500 hover:bg-amber-600 text-black font-semibold border border-amber-700">
-                Daftar
-              </Button>
+            <Link
+              to="/register"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Button className="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold border border-amber-300">Daftar</Button>
             </Link>
           </div>
         </div>
