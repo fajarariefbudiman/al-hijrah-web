@@ -4,6 +4,7 @@ import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import logo from "../assets/al-hijrah-logo-rm.png";
 import hero from "../assets/more.jpg";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -121,12 +122,12 @@ const Login = () => {
 
             <p className="text-sm text-center text-gray-600 mt-6">
               Belum punya akun?{" "}
-              <a
-                href="/register"
-                className="text-amber-600 font-semibold hover:underline"
+              <Link
+                to="/register"
+                className="text-amber-400 font-semibold hover:underline"
               >
                 Daftar sekarang
-              </a>
+              </Link>
             </p>
 
             <p className="text-xs text-center text-gray-400 mt-8">© 2025 Al-Hijrah Transport. All Rights Reserved.</p>
@@ -231,12 +232,12 @@ const Login = () => {
 
               <p className="text-xs text-center text-gray-600 mt-5">
                 Belum punya akun?{" "}
-                <a
-                  href="/register"
-                  className="text-amber-600 font-semibold hover:underline"
+                <Link
+                  to="/register"
+                  className="text-amber-400 font-semibold hover:underline"
                 >
                   Daftar sekarang
-                </a>
+                </Link>
               </p>
             </div>
 
