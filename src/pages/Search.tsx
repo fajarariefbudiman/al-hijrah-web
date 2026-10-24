@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import DemoDataNote from "../components/DemoDataNote";
 import Footer from "../components/Footer";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
@@ -103,14 +104,15 @@ const Buses: React.FC = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex items-center gap-2 mb-4">
             <Sparkles className="h-5 w-5 text-amber-500 animate-pulse" />
-            <span className="text-xs md:text-sm text-amber-600 font-semibold uppercase tracking-wide">Temukan Bus Terbaik</span>
+            <span className="text-xs md:text-sm text-amber-600 font-semibold uppercase tracking-wide">Cari Bus (Demo)</span>
           </div>
 
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 md:mb-4 leading-tight">
             Cari & Pesan Bus <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-red-600">Impianmu</span>
           </h1>
+          <div className="mb-3"><DemoDataNote /></div>
 
-          <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8 max-w-2xl">Ribuan pilihan bus premium dengan harga terbaik. Pesan sekarang dan nikmati perjalanan nyaman!</p>
+          <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8 max-w-2xl">Contoh tampilan hasil pencarian. Jadwal, harga, diskon, dan ketersediaan kursi adalah data ilustratif.</p>
 
           {/* Search Bar */}
           <div className="flex flex-col md:flex-row gap-3 max-w-4xl">
@@ -240,7 +242,7 @@ const Buses: React.FC = () => {
                     {bus.discount > 0 && (
                       <div className="bg-gradient-to-r from-red-600 to-red-700 text-white text-xs font-bold px-4 py-1.5 flex items-center gap-2">
                         <Zap className="h-3 w-3" />
-                        DISKON {bus.discount}% - HEMAT Rp {((bus.price * bus.discount) / 100).toLocaleString("id-ID")}
+                        CONTOH DISKON {bus.discount}% · HEMAT Rp {((bus.price * bus.discount) / 100).toLocaleString("id-ID")}
                       </div>
                     )}
 

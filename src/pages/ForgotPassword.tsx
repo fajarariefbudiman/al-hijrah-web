@@ -19,8 +19,8 @@ const ForgotPassword = () => {
     
     if (!email) {
       toast({
-        title: "Error",
-        description: "Please enter your email address",
+        title: "Kesalahan",
+        description: "Masukkan alamat email Anda",
         variant: "destructive",
       });
       return;
@@ -28,8 +28,8 @@ const ForgotPassword = () => {
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       toast({
-        title: "Error",
-        description: "Please enter a valid email address",
+        title: "Kesalahan",
+        description: "Masukkan alamat email yang valid",
         variant: "destructive",
       });
       return;
@@ -37,8 +37,8 @@ const ForgotPassword = () => {
 
     setIsSubmitted(true);
     toast({
-      title: "Success",
-      description: "Password reset link sent to your email",
+      title: "Simulasi",
+      description: "Tidak ada email yang dikirim. Ini hanya contoh tampilan.",
     });
   };
 
@@ -48,39 +48,39 @@ const ForgotPassword = () => {
 
       <section className="flex-1 py-16 px-4">
         <div className="container mx-auto max-w-md">
-          <Link to="/login" className="inline-flex items-center gap-2 text-sky-blue hover:text-navy-blue mb-6 transition-colors">
+          <Link to="/login" className="inline-flex items-center gap-2 text-amber-600 hover:text-gray-900 mb-6 transition-colors">
             <ArrowLeft className="h-4 w-4" />
-            Back to Login
+            Kembali ke Masuk
           </Link>
 
-          <Card className="p-8 shadow-soft">
+          <Card className="p-8 shadow-md">
             {!isSubmitted ? (
               <>
                 <div className="text-center mb-8">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-sky-blue/10 rounded-full mb-4">
-                    <Mail className="h-8 w-8 text-sky-blue" />
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-amber-50 rounded-full mb-4">
+                    <Mail className="h-8 w-8 text-amber-600" />
                   </div>
-                  <h1 className="text-3xl font-bold text-navy-blue mb-2">Forgot Password?</h1>
+                  <h1 className="text-3xl font-bold text-gray-900 mb-2">Lupa Kata Sandi?</h1>
                   <p className="text-muted-foreground">
-                    No worries! Enter your email and we'll send you reset instructions.
+                    No worries! email@example.com and we'll send you reset instructions.
                   </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <Label htmlFor="email">Email Address</Label>
+                    <Label htmlFor="email">Alamat Email</Label>
                     <Input
                       id="email"
                       type="email"
-                      placeholder="Enter your email"
+                      placeholder="email@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="mt-1"
                     />
                   </div>
 
-                  <Button type="submit" className="w-full bg-sky-blue hover:bg-sky-blue/90 text-white">
-                    Send Reset Link
+                  <Button type="submit" className="w-full bg-amber-500 hover:bg-amber-600 text-white">
+                    Kirim Tautan Reset (Simulasi)
                   </Button>
                 </form>
               </>
@@ -89,22 +89,22 @@ const ForgotPassword = () => {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
                   <CheckCircle2 className="h-8 w-8 text-green-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-navy-blue mb-2">Check Your Email</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">Ini Hanya Simulasi</h2>
                 <p className="text-muted-foreground mb-6">
-                  We've sent password reset instructions to <strong>{email}</strong>
+                  Tidak ada email yang dikirim ke <strong>{email}</strong>
                 </p>
                 <p className="text-sm text-muted-foreground mb-6">
-                  Didn't receive the email? Check your spam folder or{" "}
+                  Ingin mencoba lagi?{" "}
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="text-sky-blue hover:underline"
+                    className="text-amber-600 hover:underline"
                   >
-                    try again
+                    ulangi
                   </button>
                 </p>
                 <Link to="/login">
-                  <Button variant="outline" className="border-sky-blue text-sky-blue hover:bg-sky-blue hover:text-white">
-                    Back to Login
+                  <Button variant="outline" className="border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white">
+                    Kembali ke Masuk
                   </Button>
                 </Link>
               </div>

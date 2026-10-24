@@ -7,9 +7,9 @@ import { Search, Star, BusFront, ArrowRight } from "lucide-react";
 import mercedez from "../assets/mercedez.png";
 import volvo from "../assets/volvo.png";
 import hero from "../assets/hero.jpg";
-import news1 from "../assets/1.png";
-import news2 from "../assets/2.png";
-import news3 from "../assets/3.png";
+import news1 from "../assets/news-1.jpg";
+import news2 from "../assets/news-2.jpg";
+import news3 from "../assets/news-3.jpg";
 import more from "../assets/more.jpg";
 import Select, { StylesConfig } from "react-select";
 import DatePicker from "react-datepicker";
@@ -28,17 +28,17 @@ const Index = () => {
     {
       img: { more },
       title: "Keramahan Awak Bus",
-      desc: "Layanan pramugara/i yang ramah siap menemani perjalanan kamu.",
+      desc: "Contoh konten informasi tentang layanan awak bus yang dapat ditampilkan di sini.",
     },
     {
       img: { volvo },
       title: "Kenyamanan Armada",
-      desc: "Kursi empuk, AC dingin, dan fasilitas lengkap di setiap perjalanan.",
+      desc: "Contoh konten informasi fasilitas armada seperti kursi, AC, dan kenyamanan.",
     },
     {
       img: { mercedez },
       title: "Ketepatan Waktu",
-      desc: "Jadwal keberangkatan yang disiplin dan tepat waktu ke setiap tujuan.",
+      desc: "Contoh konten informasi jadwal keberangkatan dan estimasi waktu perjalanan.",
     },
   ];
   const featuredNews = [
@@ -46,19 +46,19 @@ const Index = () => {
       id: 1,
       img: news1,
       title: "Keramahan Awak Bus",
-      desc: "Layanan pramugara/i yang ramah siap menemani perjalanan kamu.",
+      desc: "Contoh konten informasi tentang layanan awak bus yang dapat ditampilkan di sini.",
     },
     {
       id: 2,
       img: news2,
       title: "Kenyamanan Armada",
-      desc: "Kursi empuk, AC dingin, dan fasilitas lengkap di setiap perjalanan.",
+      desc: "Contoh konten informasi fasilitas armada seperti kursi, AC, dan kenyamanan.",
     },
     {
       id: 3,
       img: news3,
       title: "Ketepatan Waktu",
-      desc: "Jadwal keberangkatan yang disiplin dan tepat waktu ke setiap tujuan.",
+      desc: "Contoh konten informasi jadwal keberangkatan dan estimasi waktu perjalanan.",
     },
   ];
 
@@ -168,6 +168,7 @@ const Index = () => {
         {/* Teks utama */}
         <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-6xl flex flex-col justify-center h-full text-center md:text-left">
           <div className="max-w-3xl mx-auto md:mx-0">
+            <Link to="/about-prototype" className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-amber-300 bg-white/80 px-3 py-1 text-xs font-medium text-amber-800 backdrop-blur hover:bg-amber-50">Konsep Website Digital PO Al-Hijrah · Prototype by DiGiat · <span className="underline">Tentang Prototype Ini</span></Link>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-12 md:mb-60 text-gray-900">
               Booking Tiket Bus
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-red-600 mt-2">Cepat & Nyaman</span>
@@ -269,7 +270,7 @@ const Index = () => {
       {/* Berita Terbaru */}
       <section className="bg-gray-50 py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">Berita Terbaru</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">Sorotan Layanan (Contoh)</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {featuredNews.map((news) => (
@@ -293,12 +294,7 @@ const Index = () => {
                     <p className="text-gray-600 text-sm sm:text-base mb-4 line-clamp-3">{news.desc}</p>
                   </div>
 
-                  <Link
-                    to={`/news/${news.id}`}
-                    className="text-red-600 font-semibold hover:underline flex items-center gap-1 text-sm sm:text-base"
-                  >
-                    Lihat Selengkapnya <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  <span className="inline-block w-fit rounded-full bg-gray-100 px-3 py-1 text-[11px] font-medium text-gray-600">Konten ilustratif</span>
                 </div>
               </div>
             ))}
@@ -309,9 +305,9 @@ const Index = () => {
       {/* Section Agen */}
       <section className="container mx-auto px-4 sm:px-6 py-16 sm:py-24 max-w-7xl">
         <div className="text-center mb-10 sm:mb-12">
-          <span className="text-yellow-600 font-semibold text-xs sm:text-sm uppercase tracking-wider">Agen Resmi</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-2">Temukan Agen Kami</h2>
-          <p className="text-gray-600 mt-2 text-sm sm:text-lg max-w-2xl mx-auto">Daftar lokasi agen resmi BusTicket di seluruh Indonesia</p>
+          <span className="text-yellow-600 font-semibold text-xs sm:text-sm uppercase tracking-wider">Contoh Tampilan</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-2">Temukan Agen</h2>
+          <p className="text-gray-600 mt-2 text-sm sm:text-lg max-w-2xl mx-auto">Contoh tampilan daftar agen. Nama dan alamat pada bagian ini adalah data ilustratif.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
@@ -320,28 +316,28 @@ const Index = () => {
               id: 1,
               name: "Agen Tangerang",
               city: "Tangerang",
-              address: "Jl. Merdeka No.12, Tangerang",
+              address: "Alamat contoh (ilustratif)",
               img: mercedez,
             },
             {
               id: 2,
               name: "Agen Jakarta",
               city: "Jakarta",
-              address: "Jl. Sudirman No.45, Jakarta Pusat",
+              address: "Alamat contoh (ilustratif)",
               img: volvo,
             },
             {
               id: 3,
               name: "Agen Bandung",
               city: "Bandung",
-              address: "Jl. Asia Afrika No.88, Bandung",
+              address: "Alamat contoh (ilustratif)",
               img: more,
             },
             {
               id: 4,
               name: "Agen Bogor",
               city: "Bogor",
-              address: "Jl. Malioboro No.77, Bogor",
+              address: "Alamat contoh (ilustratif)",
               img: hero,
             },
           ].map((agent) => (
@@ -363,12 +359,7 @@ const Index = () => {
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1">{agent.name}</h3>
                 <p className="text-gray-700 text-sm">{agent.city}</p>
                 <p className="text-gray-500 text-xs mt-1">{agent.address}</p>
-                <Link
-                  to={`/agents/${agent.id}`}
-                  className="inline-block mt-4 text-red-600 font-semibold hover:underline text-sm sm:text-base"
-                >
-                  Lihat Detail
-                </Link>
+                <span className="inline-block mt-4 rounded-full bg-gray-100 px-3 py-1 text-[11px] font-medium text-gray-600">Data ilustratif</span>
               </div>
             </Card>
           ))}
@@ -384,23 +375,23 @@ const Index = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Kata <span className="text-yellow-600">Penumpang</span>
           </h2>
-          <p className="text-gray-600 text-lg">Cerita nyata dari pelanggan BusTicket</p>
+          <p className="text-gray-600 text-lg">Contoh tampilan ulasan penumpang. Bukan testimoni nyata.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {[
             {
-              name: "Dewi Lestari",
+              name: "Penumpang Contoh A",
               rating: 5,
               comment: "Pelayanan cepat, bus nyaman, dan on-time banget. Recommended!",
             },
             {
-              name: "Rizky Pratama",
+              name: "Penumpang Contoh B",
               rating: 5,
               comment: "Booking gampang, bisa pilih kursi langsung. Prosesnya cepet banget!",
             },
             {
-              name: "Fadhil Ananda",
+              name: "Penumpang Contoh C",
               rating: 4,
               comment: "Bus bersih dan supirnya ramah. Pengalaman menyenangkan!",
             },

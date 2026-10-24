@@ -27,7 +27,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.");
+    alert("Ini simulasi: pesan Anda tidak dikirim ke mana pun. Untuk berdiskusi tentang prototype ini, hubungi DiGiat.");
     setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
@@ -61,6 +61,7 @@ const Contact = () => {
                 onSubmit={handleSubmit}
                 className="space-y-5"
               >
+                <p className="rounded-md border border-amber-300/50 bg-amber-500/10 px-3 py-2 text-xs text-amber-200">Formulir contoh: pesan tidak dikirim ke mana pun. Jangan masukkan data pribadi.</p>
                 <div>
                   <Label htmlFor="name">Nama</Label>
                   <Input
@@ -134,8 +135,8 @@ const Contact = () => {
               <div>
                 <h3 className="font-semibold text-white mb-1">Alamat Kantor</h3>
                 <p className="text-gray-400">
-                  Jl. Raya Pondok Cabe No. 89 <br />
-                  Tangerang Selatan, Banten 15418 <br />
+                  [Alamat kantor, diisi setelah diverifikasi PO] <br />
+                  [Kota, Provinsi] <br />
                   Indonesia
                 </p>
               </div>
@@ -146,8 +147,8 @@ const Contact = () => {
               <div>
                 <h3 className="font-semibold text-white mb-1">Telepon</h3>
                 <p className="text-gray-400">
-                  Admin: +62 812-1234-5678 <br />
-                  Reservasi: +62 811-9876-5432
+                  Admin: [nomor, diisi setelah verifikasi] <br />
+                  Reservasi: [nomor, diisi setelah verifikasi]
                 </p>
               </div>
             </Card>
@@ -157,8 +158,8 @@ const Contact = () => {
               <div>
                 <h3 className="font-semibold text-white mb-1">Email</h3>
                 <p className="text-gray-400">
-                  info@alhijrahbus.co.id <br />
-                  support@alhijrahbus.co.id
+                  [email, diisi setelah verifikasi] <br />
+                  [email, diisi setelah verifikasi]
                 </p>
               </div>
             </Card>

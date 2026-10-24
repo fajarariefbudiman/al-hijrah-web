@@ -17,17 +17,17 @@ const Rute = () => {
     {
       icon: <Bus size={32} className="text-amber-600" />,
       title: "Armada Premium",
-      desc: "Kenyamanan maksimal dengan kursi ergonomis dan AC sejuk.",
+      desc: "Contoh informasi fasilitas armada.",
     },
     {
       icon: <Clock size={32} className="text-amber-600" />,
       title: "Tepat Waktu",
-      desc: "Keberangkatan selalu sesuai jadwal tanpa penundaan.",
+      desc: "Contoh informasi jadwal keberangkatan.",
     },
     {
       icon: <Star size={32} className="text-amber-600" />,
       title: "Pelayanan Terbaik",
-      desc: "Driver profesional & ramah siap membantu setiap penumpang.",
+      desc: "Contoh informasi layanan awak bus.",
     },
   ];
 
@@ -46,7 +46,7 @@ const Rute = () => {
             Rute & Jadwal Keberangkatan
           </h1>
           <p className="text-gray-700 text-sm sm:text-lg leading-relaxed">
-            Jelajahi berbagai destinasi populer dengan armada bus terbaik kami. Aman, nyaman, dan tepat waktu.
+            Contoh tampilan informasi rute dan jadwal. Seluruh rute, jam, dan harga di halaman ini adalah data ilustratif.
           </p>
         </div>
       </section>
@@ -81,7 +81,7 @@ const Rute = () => {
                 <th className="py-3 sm:py-5 px-2 sm:px-4 font-semibold">Tujuan</th>
                 <th className="py-3 sm:py-5 px-2 sm:px-4 font-semibold">Waktu</th>
                 <th className="py-3 sm:py-5 px-2 sm:px-4 font-semibold">Estimasi</th>
-                <th className="py-3 sm:py-5 px-2 sm:px-4 font-semibold">Harga</th>
+                <th className="py-3 sm:py-5 px-2 sm:px-4 font-semibold">Harga (ilustratif)</th>
               </tr>
             </thead>
             <tbody>
@@ -102,10 +102,10 @@ const Rute = () => {
       {/* CTA */}
       <section className="text-center py-12 sm:py-20 bg-gradient-to-t from-gray-100 via-gray-50 to-white px-4 sm:px-8">
         <h2 className="text-xl sm:text-3xl font-bold text-amber-600 mb-3 sm:mb-4">
-          Siap Berangkat Bersama Kami?
+          Coba Simulasi Pemesanan
         </h2>
         <p className="text-gray-700 mb-6 sm:mb-8 text-sm sm:text-base max-w-2xl mx-auto">
-          Pesan tiket bus favoritmu sekarang dan nikmati perjalanan yang tak terlupakan dengan armada terbaik dan pelayanan maksimal.
+          Lihat alur dari pencarian rute hingga simulasi pembayaran. Tidak ada tiket atau transaksi sungguhan.
         </p>
         <motion.button
           whileHover={{ scale: 1.05 }}

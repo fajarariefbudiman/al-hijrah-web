@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useToast } from "../hooks/use-toast";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
@@ -7,12 +8,14 @@ import hero from "../assets/more.jpg";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const { toast } = useToast();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login:", { email, password });
+    toast({ title: "Simulasi", description: "Tidak ada akun yang dibuat atau disimpan. Ini hanya contoh tampilan." });
+    setPassword("");
   };
 
   return (
@@ -86,7 +89,8 @@ const Login = () => {
                 />
               </div>
 
-              <Button
+              <p className="mb-3 rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-xs text-amber-900">Halaman contoh: tidak ada akun sungguhan. Jangan gunakan email atau kata sandi asli.</p>
+                <Button
                 onClick={handleSubmit}
                 className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-xl text-base shadow-lg transition-all"
               >
@@ -189,6 +193,7 @@ const Login = () => {
                   />
                 </div>
 
+                <p className="mb-3 rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-xs text-amber-900">Halaman contoh: tidak ada akun sungguhan. Jangan gunakan email atau kata sandi asli.</p>
                 <Button
                   onClick={handleSubmit}
                   className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold h-11 rounded-lg text-sm shadow-md transition-all mt-6"

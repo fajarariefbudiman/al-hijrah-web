@@ -54,11 +54,11 @@ const About = () => {
           className="text-gray-700 leading-relaxed space-y-3 sm:space-y-4 text-sm sm:text-base"
         >
           <p>
-            Berdiri sejak <span className="text-amber-500 font-semibold">2015</span>, <strong>Al-Hijrah Bus</strong> memulai perjalanan dengan satu tujuan: menghadirkan layanan transportasi darat yang nyaman dan terpercaya.
+            Halaman ini adalah bagian dari <strong>prototype konsep</strong> website digital untuk PO Al-Hijrah yang dibuat secara independen oleh DiGiat. Informasi profil perusahaan akan diisi setelah diverifikasi langsung oleh PO.
           </p>
-          <p>Kami percaya setiap perjalanan bukan hanya tentang jarak, tapi juga pengalaman. Karena itu, seluruh armada kami dilengkapi fasilitas modern dan kru profesional.</p>
+          <p>Tujuannya sederhana: menunjukkan bagaimana calon penumpang dapat mengenal armada, menjelajahi rute, dan mencoba alur pemesanan dalam satu pengalaman digital.</p>
           <p>
-            Kini, <strong>Al-Hijrah Bus</strong> melayani berbagai rute populer antar-kota di Pulau Jawa dan Sumatra dengan standar keselamatan tinggi.
+            Seluruh konten di prototype ini bersifat ilustratif dan tidak mewakili pernyataan resmi PO Al-Hijrah.
           </p>
         </motion.div>
       </section>
@@ -74,8 +74,8 @@ const About = () => {
                   className="text-amber-500"
                 />
               ),
-              label: "Armada Aktif",
-              value: "120+",
+              label: "Katalog Armada",
+              value: "Konsep",
             },
             {
               icon: (
@@ -84,8 +84,8 @@ const About = () => {
                   className="text-amber-500"
                 />
               ),
-              label: "Penumpang Setia",
-              value: "50.000+",
+              label: "Pencarian Rute",
+              value: "Interaktif",
             },
             {
               icon: (
@@ -94,8 +94,8 @@ const About = () => {
                   className="text-amber-500"
                 />
               ),
-              label: "Kepuasan Pelanggan",
-              value: "98%",
+              label: "Pilih Kursi",
+              value: "Interaktif",
             },
             {
               icon: (
@@ -104,8 +104,8 @@ const About = () => {
                   className="text-amber-500"
                 />
               ),
-              label: "Tingkat Keamanan",
-              value: "100%",
+              label: "Booking & Bayar",
+              value: "Simulasi",
             },
           ].map((item, i) => (
             <motion.div
@@ -123,7 +123,7 @@ const About = () => {
 
       {/* ===== NILAI KAMI ===== */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-14 md:py-20 text-center">
-        <h2 className="text-2xl sm:text-3xl font-bold text-amber-600 mb-8 sm:mb-12">Nilai yang Kami Junjung</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-amber-600 mb-8 sm:mb-12">Prinsip Desain Prototype</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {[
@@ -134,8 +134,8 @@ const About = () => {
                   className="text-amber-500"
                 />
               ),
-              title: "Kenyamanan",
-              desc: "Setiap kursi dan fasilitas kami rancang untuk memastikan kenyamanan maksimal di setiap perjalanan.",
+              title: "Sederhana",
+              desc: "Alur pemesanan dibuat ringkas: cari rute, pilih kursi, lalu simulasikan pembayaran.",
             },
             {
               icon: (
@@ -144,8 +144,8 @@ const About = () => {
                   className="text-amber-500"
                 />
               ),
-              title: "Keselamatan",
-              desc: "Kami mengutamakan keselamatan penumpang melalui pemeriksaan armada rutin dan sopir berpengalaman.",
+              title: "Transparan",
+              desc: "Seluruh data diberi label ilustratif agar tidak menimbulkan salah paham.",
             },
             {
               icon: (
@@ -154,8 +154,8 @@ const About = () => {
                   className="text-amber-500"
                 />
               ),
-              title: "Profesionalisme",
-              desc: "Layanan ramah, jadwal tepat waktu, dan pengalaman pelanggan adalah prioritas utama kami.",
+              title: "Responsif",
+              desc: "Tampilan dirancang nyaman di ponsel maupun desktop.",
             },
           ].map((v, i) => (
             <motion.div
@@ -173,8 +173,8 @@ const About = () => {
 
       {/* ===== CTA ===== */}
       <section className="text-center py-14 md:py-20 bg-gray-50 px-4">
-        <h2 className="text-2xl sm:text-3xl font-bold text-amber-600 mb-3 sm:mb-4">Siap Berangkat Bersama Al-Hijrah Bus?</h2>
-        <p className="text-gray-700 text-sm sm:text-base max-w-xl mx-auto mb-6 sm:mb-8">Nikmati perjalanan aman dan berkelas dengan armada terbaik kami. Pesan tiket sekarang dan rasakan bedanya!</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-amber-600 mb-3 sm:mb-4">Coba Alur Pemesanan (Simulasi)</h2>
+        <p className="text-gray-700 text-sm sm:text-base max-w-xl mx-auto mb-6 sm:mb-8">Jelajahi pencarian rute, pilihan kursi, dan simulasi pembayaran. Tidak ada transaksi sungguhan.</p>
         <motion.button
           whileHover={{ scale: 1.05 }}
           className="px-6 sm:px-8 py-2.5 sm:py-3 bg-amber-500 text-white font-semibold rounded-full hover:bg-amber-600 transition shadow-md"

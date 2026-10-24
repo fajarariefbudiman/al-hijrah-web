@@ -17,8 +17,7 @@ const BusShowcase = () => {
       name: "Super Top SHD",
       image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80",
       description: "Bus premium dengan fasilitas bintang 5 untuk perjalanan jarak jauh yang mewah dan nyaman",
-      capacity: "30 seats",
-      rating: "4.9",
+      capacity: "30 seats",
       facilities: [
         { icon: <Wind />, label: "AC Premium" },
         { icon: <Wifi />, label: "WiFi Unlimited" },
@@ -34,8 +33,7 @@ const BusShowcase = () => {
       name: "Executive Plus",
       image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=80",
       description: "Pilihan terbaik untuk perjalanan bisnis dengan kenyamanan ekstra dan harga kompetitif",
-      capacity: "24 seats",
-      rating: "4.7",
+      capacity: "24 seats",
       facilities: [
         { icon: <Wind />, label: "AC Double Blower" },
         { icon: <Wifi />, label: "WiFi Gratis" },
@@ -48,8 +46,7 @@ const BusShowcase = () => {
       name: "Travel Hiace",
       image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80",
       description: "Solusi travel ekonomis untuk keluarga dan grup dengan fleksibilitas tinggi",
-      capacity: "12 seats",
-      rating: "4.5",
+      capacity: "12 seats",
       facilities: [
         { icon: <Wind />, label: "AC Dingin" },
         { icon: <Armchair />, label: "Comfort Seat" },
@@ -62,52 +59,52 @@ const BusShowcase = () => {
     {
       img: "https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=900&q=60",
       title: "Keramahan Awak Bus",
-      desc: "Tim pramugara/i profesional yang telah terlatih siap memberikan pelayanan terbaik sepanjang perjalanan Anda.",
-      subtitle: "Pelayanan 24/7",
+      desc: "Contoh tampilan informasi awak bus dan layanan selama perjalanan.",
+      subtitle: "Contoh Layanan",
     },
     {
       img: "https://images.unsplash.com/photo-1531771686035-25f47595c87b?auto=format&fit=crop&w=900&q=60",
       title: "Kenyamanan Armada",
-      desc: "Armada terawat dengan kursi empuk, AC optimal, dan kebersihan yang selalu terjaga untuk kenyamanan maksimal.",
-      subtitle: "Perawatan Rutin",
+      desc: "Contoh tampilan informasi fasilitas kursi, AC, dan kebersihan armada.",
+      subtitle: "Contoh Fasilitas",
     },
     {
       img: "https://images.unsplash.com/photo-1501746877-14782df58970?auto=format&fit=crop&w=900&q=60",
       title: "Ketepatan Waktu",
-      desc: "Komitmen kami untuk selalu on-time dengan sistem tracking GPS dan manajemen rute yang efisien.",
-      subtitle: "99% On-Time",
+      desc: "Contoh tampilan informasi jadwal dan estimasi waktu keberangkatan.",
+      subtitle: "Contoh Jadwal",
     },
   ];
 
   const safetyFeatures = [
     {
       title: "Sabuk Pengaman",
-      desc: "Setiap kursi dilengkapi sabuk pengaman berkualitas tinggi",
+      desc: "Contoh: informasi sabuk pengaman pada setiap kursi",
       icon: Lock,
     },
     {
       title: "APAR Lengkap",
-      desc: "Alat pemadam api tersedia di setiap sudut bus",
+      desc: "Contoh: informasi alat pemadam api di dalam bus",
       icon: FireExtinguisherIcon,
     },
     {
       title: "GPS Tracking",
-      desc: "Monitoring perjalanan real-time untuk keamanan maksimal",
+      desc: "Contoh: informasi pelacakan perjalanan",
       icon: MapPin,
     },
     {
       title: "P3K Standar",
-      desc: "Kotak P3K lengkap untuk pertolongan pertama",
+      desc: "Contoh: informasi kotak P3K",
       icon: Plus,
     },
     {
       title: "Driver Bersertifikat",
-      desc: "Pengemudi profesional dengan lisensi lengkap",
+      desc: "Contoh: informasi kualifikasi pengemudi",
       icon: UserCheck,
     },
     {
       title: "Asuransi Perjalanan",
-      desc: "Dilindungi asuransi untuk ketenangan pikiran Anda",
+      desc: "Contoh: informasi perlindungan perjalanan",
       icon: Shield,
     },
   ];
@@ -142,8 +139,8 @@ const BusShowcase = () => {
       {/* Hero Section */}
       <section className="pt-8 md:pt-12 pb-6 md:pb-8 text-center px-4 bg-white">
         <div className="max-w-4xl mx-auto mb-8 md:mb-12">
-          <h1 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600">Armada Premium Kami</h1>
-          <p className="text-sm md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">Pilih armada yang sesuai dengan kebutuhan perjalanan Anda. Semua armada kami dilengkapi dengan fasilitas modern dan standar keamanan tertinggi.</p>
+          <h1 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600">Katalog Armada (Konsep)</h1>
+          <p className="text-sm md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">Pilih armada yang sesuai dengan kebutuhan perjalanan Anda. Contoh tampilan katalog armada. Tipe, kapasitas, dan fasilitas pada halaman ini adalah data ilustratif dan belum diverifikasi oleh PO Al-Hijrah.</p>
         </div>
 
         {/* Stats */}
@@ -151,19 +148,19 @@ const BusShowcase = () => {
           <div className="flex items-center gap-2 bg-amber-50 px-4 md:px-6 py-2 md:py-3 rounded-full border border-amber-200">
             <Users className="text-amber-600 h-4 w-4 md:h-5 md:w-5" />
             <span className="text-xs md:text-sm text-gray-700">
-              <strong className="text-amber-600">500K+</strong> Penumpang
+              <strong className="text-amber-600">3</strong> Tipe Armada
             </span>
           </div>
           <div className="flex items-center gap-2 bg-amber-50 px-4 md:px-6 py-2 md:py-3 rounded-full border border-amber-200">
             <Star className="text-amber-600 h-4 w-4 md:h-5 md:w-5" />
             <span className="text-xs md:text-sm text-gray-700">
-              <strong className="text-amber-600">4.8/5</strong> Rating
+              <strong className="text-amber-600">12–30</strong> Kursi (contoh)
             </span>
           </div>
           <div className="flex items-center gap-2 bg-amber-50 px-4 md:px-6 py-2 md:py-3 rounded-full border border-amber-200">
             <Clock className="text-amber-600 h-4 w-4 md:h-5 md:w-5" />
             <span className="text-xs md:text-sm text-gray-700">
-              <strong className="text-amber-600">99%</strong> On-Time
+              <strong className="text-amber-600">Demo</strong> Data Ilustratif
             </span>
           </div>
         </div>
@@ -274,8 +271,8 @@ const BusShowcase = () => {
                     <p className="text-sm md:text-lg font-bold text-amber-300">{activeBus.capacity}</p>
                   </div>
                   <div className="bg-white/20 backdrop-blur-sm px-3 md:px-4 py-2 rounded-lg border border-white/30">
-                    <p className="text-xs text-gray-200">Rating</p>
-                    <p className="text-sm md:text-lg font-bold text-amber-300">⭐ {activeBus.rating}</p>
+                    <p className="text-xs text-gray-200">Data</p>
+                    <p className="text-sm md:text-lg font-bold text-amber-300">Ilustratif</p>
                   </div>
                 </div>
               </div>
@@ -305,8 +302,7 @@ const BusShowcase = () => {
 
         <div className="mt-8 md:mt-12 bg-amber-50 border border-amber-300 rounded-xl md:rounded-2xl p-4 md:p-6 shadow-sm">
           <p className="text-xs md:text-sm text-gray-700 leading-relaxed">
-            💡 <strong className="text-amber-700">Pro Tip:</strong> Semua fasilitas tersedia tanpa biaya tambahan! Kami berkomitmen memberikan pengalaman perjalanan terbaik untuk Anda.
-          </p>
+            💡 <strong className="text-amber-700">Catatan:</strong> Seluruh data armada, fasilitas, dan keselamatan pada halaman ini adalah ilustrasi untuk demonstrasi dan perlu diverifikasi oleh PO.</p>
         </div>
       </section>
 
@@ -315,7 +311,7 @@ const BusShowcase = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3 text-amber-600">Pengalaman Perjalanan</h2>
-            <p className="text-xs md:text-base text-gray-600">Testimoni nyata dari penumpang setia kami</p>
+            <p className="text-xs md:text-base text-gray-600">Contoh galeri pengalaman perjalanan (ilustrasi, bukan testimoni nyata)</p>
           </div>
 
           <div className="relative h-[300px] sm:h-[400px] md:h-[480px] rounded-xl md:rounded-2xl overflow-hidden">
@@ -365,7 +361,7 @@ const BusShowcase = () => {
             <Shield className="text-amber-600 h-4 w-4 md:h-5 md:w-5" />
             <span className="text-xs md:text-sm text-amber-700 font-semibold">Sertifikasi Standar Internasional</span>
           </div>
-          <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3 text-amber-600">Perlengkapan Keselamatan</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3 text-amber-600">Contoh Informasi Keselamatan</h2>
           <p className="text-xs md:text-base text-gray-600 max-w-2xl mx-auto">Keamanan adalah prioritas utama kami. Semua armada dilengkapi dengan standar keselamatan tertinggi.</p>
         </div>
 
